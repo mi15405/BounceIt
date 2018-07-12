@@ -9,6 +9,11 @@ public class Ball : MonoBehaviour {
 
     [SerializeField]
 	private Transform startingPosition;
+    public Transform StartingPosition
+    {
+        get { return startingPosition; }
+        set { startingPosition = value; }
+    }
 
     private Rigidbody rb;
 
@@ -28,6 +33,7 @@ public class Ball : MonoBehaviour {
 	{
 		transform.position = startingPosition.position;
 		rb.velocity = Vector3.zero;
+        FindObjectOfType<PlatformMovement>().ResetPosition();
 	}
 
 }

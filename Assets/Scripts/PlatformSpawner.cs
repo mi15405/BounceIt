@@ -15,6 +15,7 @@ public class PlatformSpawner : MonoBehaviour {
     private int currentPlatform = 0;
     private bool spawnPressed = false;
     private bool nextPlatformPressed = false;
+    private bool previousPlatformPressed = false;
 
     [SerializeField]
     private LayerMask blockingLayers;
@@ -60,12 +61,15 @@ public class PlatformSpawner : MonoBehaviour {
     {
         spawnPressed = Input.GetButtonDown("Jump");
         nextPlatformPressed = Input.GetButtonDown("NextPlatform");
+        previousPlatformPressed = Input.GetButtonDown("PreviousPlatform");
     }
 
     private void SpawnPlatform()
     {
         if (nextPlatformPressed)
             NextPlatform();
+        else if (previousPlatformPressed)
+            PreviousPlatform();
         
         if (spawnPressed && isSpawnable)
         {
@@ -78,10 +82,18 @@ public class PlatformSpawner : MonoBehaviour {
     private void NextPlatform()
     {
         currentPlatform++;
-
         if (currentPlatform == platformsToSpawn.Length)
             currentPlatform = 0;
-        
+
+        UpdateColor();
+    }
+
+    private void PreviousPlatform()
+    {
+        currentPlatform--;
+        if (currentPlatform < 0)
+            currentPlatform = platformsToSpawn.Length - 1;
+
         UpdateColor();
     }
 

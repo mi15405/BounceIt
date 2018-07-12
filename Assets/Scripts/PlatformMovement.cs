@@ -44,8 +44,13 @@ public class PlatformMovement : MonoBehaviour {
 	
     private void Start()
     {
-        // Starting position, below player
+        ResetPosition();
+    }
+
+    public void ResetPosition()
+    {
         currentPosition = Vector3.down * distance;
+        AllignHorizontal();
     }
 
     private void Update()
@@ -101,12 +106,21 @@ public class PlatformMovement : MonoBehaviour {
         SetLocalRotation();
 
         if (alignHorizontalPressed)
-            transform.rotation = Quaternion.Euler(-90f, 0f, -90f); // Horizontal 
+            AllignHorizontal();
         else if (alignVerticalPressed)
-            transform.rotation = Quaternion.Euler(0f, 0f, -90f); // Vertical
+            AllignVertical();
         else if (!isLocalRotating)
             transform.rotation = Quaternion.LookRotation(player.position - transform.position, Vector3.right);
+    }
 
+    private void AllignHorizontal()
+    {
+        transform.rotation = Quaternion.Euler(-90f, 0f, -90f); // Horizontal 
+    }
+
+    private void AllignVertical()
+    {
+        transform.rotation = Quaternion.Euler(0f, 0f, -90f); // Vertical
     }
 
     void SetLocalRotation()
