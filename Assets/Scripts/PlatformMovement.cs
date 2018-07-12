@@ -12,6 +12,7 @@ public class PlatformMovement : MonoBehaviour {
     private float moveSpeed;
     private float moveHorizontal;
     private float moveVertical;
+    private Vector3 moveDirection = Vector3.zero;
     
     // Current position is calculated relative to player's position
     private Vector3 currentPosition;
@@ -51,10 +52,6 @@ public class PlatformMovement : MonoBehaviour {
     {
 	    GetInput();
         SetRotation();
-    }
-
-    private void FixedUpdate()
-    {
         Move();
     }
 
@@ -81,7 +78,10 @@ public class PlatformMovement : MonoBehaviour {
 
     void Move()
     {
-        var moveDirection = new Vector3(0f, moveVertical, moveHorizontal);
+        //var moveDirection = new Vector3(0f, moveVertical, moveHorizontal);
+        moveDirection.y = moveVertical;
+        moveDirection.z = moveHorizontal;
+        
         var targetPosition = currentPosition + moveDirection * moveSpeed;
 
         currentPosition = Vector3.MoveTowards(currentPosition, targetPosition, moveSpeed * Time.deltaTime);

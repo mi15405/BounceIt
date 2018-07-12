@@ -8,10 +8,12 @@ public class Mover : MonoBehaviour
     private float speed;
 
     [SerializeField]
+    private bool pickRandomDestination = false;
+    
+    [SerializeField]
     private Transform[] destinations;
     private int currentDestination = 0;
     
-
     private void Update()
     {
         Move();
@@ -39,10 +41,17 @@ public class Mover : MonoBehaviour
 
     private void NextDestination()
     {
-        currentDestination++;
+        if (pickRandomDestination)
+        {
+            currentDestination = Random.Range(0, destinations.Length);
+        }
+        else
+        {
+            currentDestination++;
 
-        if (currentDestination == destinations.Length)
-            currentDestination = 0;
+            if (currentDestination == destinations.Length)
+                currentDestination = 0;
+        }
     }
     
 }

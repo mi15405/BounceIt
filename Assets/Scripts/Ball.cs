@@ -7,20 +7,28 @@ public class Ball : MonoBehaviour {
     [SerializeField]
     private float gravity;
 
+    [SerializeField]
+	private Transform startingPosition;
+
     private Rigidbody rb;
 
-	// Use this for initialization
-	void Start () {
-        rb = GetComponent<Rigidbody>();	
+	void Start () 
+	{
+        rb = GetComponent<Rigidbody>();
+		MoveToStart();
 	}
 	
-	// Update is called once per frame
-	void FixedUpdate () {
-        rb.AddForce(Vector3.down * gravity * Time.deltaTime);
+	void FixedUpdate () 
+	{
+		if (gravity != 0f)
+            rb.AddForce(Vector3.down * gravity * Time.deltaTime);
 	}
 
-
-
+	public void MoveToStart()
+	{
+		transform.position = startingPosition.position;
+		rb.velocity = Vector3.zero;
+	}
 
 }
 
