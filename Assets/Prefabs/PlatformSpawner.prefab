@@ -141,8 +141,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5e7c7518be37514ea0e4b467385627f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chargeThreshold: 0.15
+  chargeThresholdIncrease: 0.5
   platformsToSpawn:
   - {fileID: 1626132354398058, guid: 22bc4c0282d134647baaab87c1388758, type: 2}
   - {fileID: 1626132354398058, guid: 2e467c6e960182c4eaab0bb422026e7f, type: 2}
   - {fileID: 1626132354398058, guid: c65e5848115d4fe4ab67be089831ca65, type: 2}
+  blockingLayers:
+    serializedVersion: 2
+    m_Bits: 2560
   unspawnableColor: {r: 1, g: 0, b: 0.027146816, a: 0}

@@ -53,10 +53,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Checkpoint.cs" />
+     <Compile Include="Assets\Almgp_particle_vol_1\script\sprite_sheet.cs" />
      <Compile Include="Assets\Scripts\Ball.cs" />
      <Compile Include="Assets\Scripts\Bounce.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\Checkpoint.cs" />
      <Compile Include="Assets\Scripts\DestroyByTime.cs" />
      <Compile Include="Assets\Scripts\DestroyOnTouch.cs" />
      <Compile Include="Assets\Scripts\ForceField.cs" />
@@ -64,6 +65,11 @@
      <Compile Include="Assets\Scripts\Mover.cs" />
      <Compile Include="Assets\Scripts\PlatformMovement.cs" />
      <Compile Include="Assets\Scripts\PlatformSpawner.cs" />
+     <None Include="Assets\Almgp_particle_vol_1\shaders\emmision_particle.shader" />
+     <None Include="Assets\Almgp_particle_vol_1\shaders\multypower_particle.shader" />
+     <None Include="Assets\Almgp_particle_vol_1\README.txt" />
+     <None Include="Assets\Almgp_particle_vol_1\shaders\mesh_dissolve_particel.shader" />
+     <None Include="Assets\Almgp_particle_vol_1\shaders\face_power_particle.shader" />
  <Reference Include="Cinemachine">
  <HintPath>D:/GithubRepos/Unity/BounceIt/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
  </Reference>

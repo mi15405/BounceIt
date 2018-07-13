@@ -8,12 +8,22 @@ using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.Timeline;
 
 public class PlatformSpawner : MonoBehaviour {
+
+
+    [SerializeField]
+    private float chargeThreshold;    // charge needed for second platorm 
+
+    [SerializeField]
+    private float chargeThresholdIncrease;   // charge increase for other platforms
 	
     [SerializeField] 
     private GameObject[] platformsToSpawn;
-    
     private int currentPlatform = 0;
-    private bool spawnPressed = false;
+
+    private float bouncePower;
+    private bool isCharging = false;
+
+    private bool chargeReleased = false;
     private bool nextPlatformPressed = false;
     private bool previousPlatformPressed = false;
 
@@ -22,6 +32,8 @@ public class PlatformSpawner : MonoBehaviour {
 
     [SerializeField]
     private Color unspawnableColor;
+    [SerializeField]
+    private Color spawnableColor;
 
     private bool isSpawnable = true;
     public bool IsSpawnable
@@ -34,8 +46,7 @@ public class PlatformSpawner : MonoBehaviour {
             if (!isSpawnable)
                 material.color = unspawnableColor;
             else
-                UpdateColor();
-                
+                material.color = spawnableColor;
         }
     }
 
@@ -46,11 +57,6 @@ public class PlatformSpawner : MonoBehaviour {
         material = GetComponentInChildren<Renderer>().material;
     }
 
-    private void Start()
-    {
-        UpdateColor();
-    }
-
     private void Update()
     {
 	    GetInput();
@@ -59,7 +65,9 @@ public class PlatformSpawner : MonoBehaviour {
 
     private void GetInput()
     {
-        spawnPressed = Input.GetButtonDown("Jump");
+        isCharging = Input.GetButton("Jump");
+        chargeReleased = Input.GetButtonUp("Jump");
+
         nextPlatformPressed = Input.GetButtonDown("NextPlatform");
         previousPlatformPressed = Input.GetButtonDown("PreviousPlatform");
     }
@@ -70,13 +78,38 @@ public class PlatformSpawner : MonoBehaviour {
             NextPlatform();
         else if (previousPlatformPressed)
             PreviousPlatform();
+
+        if (isCharging)
+            bouncePower += Time.deltaTime;
         
-        if (spawnPressed && isSpawnable)
+        if (chargeReleased )
         {
-            var platform = Instantiate(platformsToSpawn[currentPlatform]);
-            platform.transform.position = transform.position;
-            platform.transform.rotation = transform.rotation;
+            if (isSpawnable)
+            {
+                var platform = Instantiate(SelectPlatformToSpawn());
+
+                platform.transform.position = transform.position;
+                platform.transform.rotation = transform.rotation;
+            }
+
+            bouncePower = 0f;
         }
+    }
+
+    private GameObject SelectPlatformToSpawn()
+    {
+        var threshold = chargeThreshold;
+
+        foreach (var platform in platformsToSpawn)
+        {
+            if (bouncePower < threshold)
+                return platform;
+            else
+                threshold += chargeThresholdIncrease;
+        }
+
+        // Returns last platofrm, if charged for too long
+        return platformsToSpawn[platformsToSpawn.Length - 1];
     }
 
     private void NextPlatform()
@@ -85,7 +118,7 @@ public class PlatformSpawner : MonoBehaviour {
         if (currentPlatform == platformsToSpawn.Length)
             currentPlatform = 0;
 
-        UpdateColor();
+        //UpdateColor();
     }
 
     private void PreviousPlatform()
@@ -94,7 +127,7 @@ public class PlatformSpawner : MonoBehaviour {
         if (currentPlatform < 0)
             currentPlatform = platformsToSpawn.Length - 1;
 
-        UpdateColor();
+        //UpdateColor();
     }
 
 
@@ -103,7 +136,7 @@ public class PlatformSpawner : MonoBehaviour {
         material.color = platformsToSpawn[currentPlatform].GetComponentInChildren<Renderer>().sharedMaterial.color;
     }
     
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (IsLayerInMask(other.gameObject.layer, blockingLayers))
         {
