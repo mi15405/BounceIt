@@ -38,7 +38,8 @@ public class KillOnCollision : MonoBehaviour
 
     private void Start()
     {
-        timeToSwitch = switchInterval;
+        if (switchEnabled)
+            timeToSwitch = Random.Range(0, switchInterval);
     }
 
     private void Update()
@@ -51,7 +52,7 @@ public class KillOnCollision : MonoBehaviour
         if (timeToSwitch < 0f)
         {
             // Assign with property, so color can change too
-            TurnedOn = !turnedOn;
+            TurnedOn = !TurnedOn;
             timeToSwitch = switchInterval;
         }   
     }

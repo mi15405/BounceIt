@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-D:/GithubRepos/Unity/BounceIt/_Builds/Build02/Build02.exe
+D:/GithubRepos/Unity/BounceIt/_Builds/Build03-particles/Build03-particles.exe
 SceneListBegin?
 Assets/_Scenes/SampleScene.unity
 SceneListEnd?
@@ -20,7 +20,8 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 1cb17642d09bed7d6d4d663bca032ac2 Assembly-CSharp.dll:.PlatformMovement
 4c75752238fd236ce350bb4f9dc2936d Cinemachine.dll:Cinemachine.CinemachineFollowZoom
 5d66aa2aec870dd80f3e5bfc8dff6c20 Cinemachine.dll:Cinemachine.CinemachineFixedSignal
-7408f1ebbbf94ddb091dac7dc8f2e129 Assembly-CSharp.dll:.PlatformSpawner
+1afb3c69e997b0130e611b5dd80be607 Assembly-CSharp.dll:.Blockade
+e2e9b9a1da41856f6c7baed7bd4d1168 Assembly-CSharp.dll:.PlatformSpawner
 ab232dc3d94359ca42eabb9c72cbbb82 Assembly-CSharp.dll:.ForceField
 7d9f0022fc83b7438f746d6e187818bf Cinemachine.dll:Cinemachine.CinemachineCollisionImpulseSource
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
@@ -88,6 +89,7 @@ f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 0a3db0af50cf758c057003e237662151 Cinemachine.dll:Cinemachine.CinemachineExternalCamera
+9a0a8dad3c69ff0d7bee002d25d0dffe Assembly-CSharp.dll:.PlayAnimationOnCollision
 ee77a3dbeba6278eff4bc4bb4a1ca647 Cinemachine.dll:Cinemachine.CinemachineStoryboard
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 cf455f7a806648c6ed4c7d3e3f8a0e03 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -130,6 +132,8 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 be7f6de50f9c5b50121ed26a5cf15aa1 Assembly-CSharp.dll:.Bounce
 7625e6433354c6cbf5f73038435ce882 Cinemachine.dll:Cinemachine.CinemachineFramingTransposer
 f7a1756ab50b92659ecd3cc312c0c65b Cinemachine.dll:Cinemachine.CinemachinePOV
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Checkpoint
+64373571cd2b5a71a2c0d21beeea94dc Assembly-CSharp.dll:.sprite_sheet
 6d477d3ffdbac9a734c62e73f99d7852 Assembly-CSharp.dll:.Ball
 e24664d92b03574beaccc10e189d38d4 Cinemachine.dll:Cinemachine.CinemachineOrbitalTransposer
 18750e0d26218f2f6a2b3b904c96ee2e Cinemachine.dll:Cinemachine.CinemachineTriggerAction
@@ -162,6 +166,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 05524b8f659e7bfe5756d1335fec24ba Cinemachine.dll:Cinemachine.CinemachineSameAsFollowTarget
 c7c3a3d1b3dfc3402bfee74c493a06c1 Cinemachine.dll:Cinemachine.CinemachineBlendListCamera
 851c643f94e3fe0cc17e8b3f2ea7b5b7 Cinemachine.dll:Cinemachine.CinemachineMixingCamera
+76119242f799591c84bce8d3be04eee2 Assembly-CSharp.dll:.DisableSwitch
 0d9c8b4275ad157d5c0da68d795fd426 Cinemachine.dll:Cinemachine.Timeline.CinemachineShot
 082365e59fa03ee2299e62f279a02926 Cinemachine.dll:Cinemachine.CinemachineConfiner
 2b53fa6d39b32adc4584159ff99b1565 Cinemachine.dll:.CinemachineTouchInputMapper
@@ -174,7 +179,7 @@ e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
 dfc607538fdb138203269f59dc629391 Assembly-CSharp.dll:.Mover
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.DestroyOnTouch
+30ebc91958beb92cefa0b3a8dbc886ae Assembly-CSharp.dll:.DestroyOnTouch
 9e0ef5bf862444b5dc48b5a99554ce7c UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioListenerExtension
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension

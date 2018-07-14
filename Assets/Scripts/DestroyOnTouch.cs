@@ -14,6 +14,7 @@ public class DestroyOnTouch : MonoBehaviour {
             if (explosionPrefab != null)
             {
                 var explosion = Instantiate(explosionPrefab);
+                explosion.Play();
                 explosion.transform.position = transform.position;
             } 
 

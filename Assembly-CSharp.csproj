@@ -54,12 +54,15 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Almgp_particle_vol_1\script\sprite_sheet.cs" />
+     <Compile Include="Assets\Blockade.cs" />
+     <Compile Include="Assets\PlayAnimationOnCollision.cs" />
      <Compile Include="Assets\Scripts\Ball.cs" />
      <Compile Include="Assets\Scripts\Bounce.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\Checkpoint.cs" />
      <Compile Include="Assets\Scripts\DestroyByTime.cs" />
      <Compile Include="Assets\Scripts\DestroyOnTouch.cs" />
+     <Compile Include="Assets\Scripts\DisableSwitch.cs" />
      <Compile Include="Assets\Scripts\ForceField.cs" />
      <Compile Include="Assets\Scripts\KillOnCollision.cs" />
      <Compile Include="Assets\Scripts\Mover.cs" />

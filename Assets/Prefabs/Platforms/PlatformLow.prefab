@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c0e0635b532e7f45ae050af594dc2a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 15
+  bounceForce: 20
 --- !u!114 &114792955988175080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,4 +137,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7d4967f55ed9143b72fbae20634b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDestroy: 2
+  timeToDestroy: 1

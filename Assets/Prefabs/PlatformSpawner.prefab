@@ -145,9 +145,8 @@ MonoBehaviour:
   chargeThresholdIncrease: 0.5
   platformsToSpawn:
   - {fileID: 1626132354398058, guid: 22bc4c0282d134647baaab87c1388758, type: 2}
-  - {fileID: 1626132354398058, guid: 2e467c6e960182c4eaab0bb422026e7f, type: 2}
-  - {fileID: 1626132354398058, guid: c65e5848115d4fe4ab67be089831ca65, type: 2}
   blockingLayers:
     serializedVersion: 2
     m_Bits: 2560
   unspawnableColor: {r: 1, g: 0, b: 0.027146816, a: 0}
+  spawnableColor: {r: 0, g: 0, b: 0, a: 0}
