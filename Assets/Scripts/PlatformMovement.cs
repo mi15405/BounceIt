@@ -8,6 +8,9 @@ public class PlatformMovement : MonoBehaviour {
     private Transform player;
 
     // MOVEMENT
+    [SerializeField]
+    private bool canMove;
+
     [SerializeField] 
     private float moveSpeed;
     private float moveHorizontal;
@@ -19,7 +22,7 @@ public class PlatformMovement : MonoBehaviour {
     
     // DISTANCE
     [SerializeField]
-    private float distance;
+    private float startingDistance;
     
     [SerializeField]
     private float distanceMax;
@@ -27,12 +30,6 @@ public class PlatformMovement : MonoBehaviour {
     // ROTATION
     [SerializeField]
     private float localRotateSpeed;
-    
-    // Rotates transform towards player
-    private bool globalRotationPressed;
-    
-    // Rotating arround local axis, instead of player
-    private bool isLocalRotating;
     
     // Rotating arround local X axis
     private bool isRotatingLeft;
@@ -49,7 +46,7 @@ public class PlatformMovement : MonoBehaviour {
 
     public void ResetPosition()
     {
-        currentPosition = Vector3.down * distance;
+        currentPosition = Vector3.down * startingDistance;
         AllignHorizontal();
     }
 
@@ -73,26 +70,22 @@ public class PlatformMovement : MonoBehaviour {
         // Allign rotation
         alignHorizontalPressed = Input.GetButton("AlignHorizontal");
         alignVerticalPressed = Input.GetButton("AlignVertical");
-        
-        // Platform is rotating localy if it already was rotating localy or has just started
-        isLocalRotating |=  isRotatingLeft || isRotatingRight;
-        
-        // Turns local rotation off, and global (arround player) on
-        globalRotationPressed = Input.GetButtonDown("Fire1");
     }
 
     void Move()
     {
-        //var moveDirection = new Vector3(0f, moveVertical, moveHorizontal);
-        moveDirection.y = moveVertical;
-        moveDirection.z = moveHorizontal;
-        
-        var targetPosition = currentPosition + moveDirection * moveSpeed;
+        if (canMove)
+        {
+            moveDirection.y = moveVertical;
+            moveDirection.z = moveHorizontal;
+            
+            var targetPosition = currentPosition + moveDirection * moveSpeed;
 
-        currentPosition = Vector3.MoveTowards(currentPosition, targetPosition, moveSpeed * Time.deltaTime);
-        
-        // Limits platform position
-        currentPosition = Vector3.ClampMagnitude(currentPosition, distanceMax);
+            currentPosition = Vector3.MoveTowards(currentPosition, targetPosition, moveSpeed * Time.deltaTime);
+            
+            // Limits platform position
+            currentPosition = Vector3.ClampMagnitude(currentPosition, distanceMax);
+        }
        
         // Position calculated relative to player
         transform.position = player.position + currentPosition;
@@ -100,38 +93,33 @@ public class PlatformMovement : MonoBehaviour {
 
     void SetRotation()
     {
-        if (globalRotationPressed)
-            isLocalRotating = false;
-        
         SetLocalRotation();
 
         if (alignHorizontalPressed)
             AllignHorizontal();
         else if (alignVerticalPressed)
             AllignVertical();
-        else if (!isLocalRotating)
-            transform.rotation = Quaternion.LookRotation(player.position - transform.position, Vector3.right);
     }
 
     private void AllignHorizontal()
     {
-        transform.rotation = Quaternion.Euler(-90f, 0f, -90f); // Horizontal 
+        transform.rotation = Quaternion.Euler(0f, 0f, 0f); // Horizontal 
     }
 
     private void AllignVertical()
     {
-        transform.rotation = Quaternion.Euler(0f, 0f, -90f); // Vertical
+        transform.rotation = Quaternion.Euler(90f, 0f, 0f); // Vertical
     }
 
     void SetLocalRotation()
     {
         if (isRotatingRight)
         {
-            transform.Rotate(Vector3.up * localRotateSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.right * localRotateSpeed * Time.deltaTime);
         }
         else if (isRotatingLeft)
         {
-            transform.Rotate(-Vector3.up * localRotateSpeed * Time.deltaTime);
+            transform.Rotate(-Vector3.right * localRotateSpeed * Time.deltaTime);
         }
     }
 

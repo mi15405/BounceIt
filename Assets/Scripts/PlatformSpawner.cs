@@ -24,8 +24,8 @@ public class PlatformSpawner : MonoBehaviour {
     private bool isCharging = false;
 
     private bool chargeReleased = false;
-    private bool nextPlatformPressed = false;
-    private bool previousPlatformPressed = false;
+    //private bool nextPlatformPressed = false;
+    //private bool previousPlatformPressed = false;
 
     [SerializeField]
     private LayerMask blockingLayers;
@@ -68,16 +68,20 @@ public class PlatformSpawner : MonoBehaviour {
         isCharging = Input.GetButton("Jump");
         chargeReleased = Input.GetButtonUp("Jump");
 
+        /*
         nextPlatformPressed = Input.GetButtonDown("NextPlatform");
         previousPlatformPressed = Input.GetButtonDown("PreviousPlatform");
+        */
     }
 
     private void SpawnPlatform()
     {
+        /*
         if (nextPlatformPressed)
             NextPlatform();
         else if (previousPlatformPressed)
             PreviousPlatform();
+        */
 
         if (isCharging)
             bouncePower += Time.deltaTime;

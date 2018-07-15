@@ -22,8 +22,8 @@ public class Mover : MonoBehaviour
 
     private void Move()
     {
-        var target = (CurrentDestination() - transform.position).normalized * speed;
-        transform.Translate(target * Time.deltaTime);
+        var target = (CurrentDestination() - transform.position).normalized;
+        transform.Translate(target * speed * Time.deltaTime, Space.World);
     }
 
     private void UpdateDestination()
