@@ -217,8 +217,8 @@ InputManager:
     m_Name: LocalRotLeft
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: q
+    negativeButton: q
+    positiveButton: 
     altNegativeButton: 
     altPositiveButton: joystick button 6
     gravity: 1000
@@ -227,7 +227,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 0
-    axis: 0
+    axis: 6
     joyNum: 0
   - serializedVersion: 3
     m_Name: Mouse X

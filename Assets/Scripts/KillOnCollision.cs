@@ -33,7 +33,7 @@ public class KillOnCollision : MonoBehaviour
 
     private void Awake()
     {
-        material = GetComponent<Renderer>().material;
+        material = GetComponentInChildren<Renderer>().material;
     }
 
     private void Start()
@@ -58,6 +58,16 @@ public class KillOnCollision : MonoBehaviour
     }
     
     private void OnCollisionEnter(Collision other)
+    {
+        KillBall(other.collider);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        KillBall(other);
+    }
+
+    private void KillBall(Collider other)
     {
         if (!turnedOn)
             return;

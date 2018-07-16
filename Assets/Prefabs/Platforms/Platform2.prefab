@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 54588459583954506}
   - component: {fileID: 114080449475727048}
   - component: {fileID: 114309715200277988}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Platform2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 4300212203836122}
   - component: {fileID: 33597790844493002}
   - component: {fileID: 23030257424001372}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4678616387854338}
   - component: {fileID: 33209505350302892}
   - component: {fileID: 23423033995261456}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c0e0635b532e7f45ae050af594dc2a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 30
+  bounceForce: 35
 --- !u!114 &114309715200277988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -239,4 +239,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7d4967f55ed9143b72fbae20634b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDestroy: 1
+  timeToDestroy: 0.5
