@@ -11,13 +11,9 @@ public class Bounce : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("Ball"))
 		{
-			var rb = other.gameObject.GetComponent<Rigidbody>();
-			if (rb == null)
-				Debug.LogError(("Can't find Rigidbody on Player"));
-
 			var bounceDirection = -other.contacts[0].normal;
-			
-			rb.AddForce(bounceDirection * bounceForce, ForceMode.Impulse);
+			other.rigidbody.AddForce(bounceDirection * bounceForce, ForceMode.Impulse);
 		}
 	}
+
 }

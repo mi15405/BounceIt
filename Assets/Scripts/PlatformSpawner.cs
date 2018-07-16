@@ -50,11 +50,14 @@ public class PlatformSpawner : MonoBehaviour {
         }
     }
 
+    [SerializeField]
+    private GameObject spawnIndicator;
+
     private Material material;
 
     private void Awake()
     {
-        material = GetComponentInChildren<Renderer>().material;
+        material = spawnIndicator.GetComponentInChildren<Renderer>().material;
     }
 
     private void Update()

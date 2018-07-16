@@ -12,6 +12,9 @@ public class Shoot : MonoBehaviour {
 	[SerializeField] 
 	private Transform aimFrom;
 
+	[SerializeField] private string horizontalAxis;
+	[SerializeField] private string verticalAxis;
+
     // FORCE
 	[SerializeField] 
 	private float forceChargeTime;
@@ -36,6 +39,7 @@ public class Shoot : MonoBehaviour {
     [SerializeField]
     private float shootParticleDuration;
     private float particleLifetime = 0f;
+	
 	
 	private Vector3 fireDirection = Vector3.forward;
 
@@ -67,8 +71,8 @@ public class Shoot : MonoBehaviour {
 
 	private void GetInput()
 	{
-		fireDirection.z = Input.GetAxis("Horizontal");
-		fireDirection.y = Input.GetAxis("Vertical");
+		fireDirection.z = Input.GetAxis(horizontalAxis);
+		fireDirection.y = Input.GetAxis(verticalAxis);
 		shootPressed = Input.GetButton("Push");
 		shootReleased = Input.GetButtonUp("Push");	
 	}
